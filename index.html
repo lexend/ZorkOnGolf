@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="main.js" async></script>
+    <script src="classes.js" async></script>
+  </head>
+  <body>
+    <h1>Zork On Golf</h1>
+    <section class="welcome">
+      <h3>Willkommen</h3>
+      <button type="button" id="startButton">Start</button>
+      <div id="welcomeText"></div>
+    </section>
+  </br>
+
+   <section id="courseSelection">
+     <h3>Course Selection</h3>
+      <button type="button" id="btn_frontNine" name="front Nine">Loch 1-9</button>
+      <button type="button" id="btn_backNine" name="back Nine">Loch 10-18</button>
+      <article id="courseText"></article>
+   </section>
+
+   <section id="holeSelection">
+    <h3>Hole Selection</h3>
+     <button type="button" id="btn_hole1" name="hole1">Loch 1</button>
+     <button type="button" id="btn_hole2" name="hole2">Loch 2</button>
+     <button type="button" id="btn_hole3" name="hole3">Loch 3</button>
+     <article id = "holeText"></article>
+  </section>
+
+    <section id="clubSelection">
+      <h3>Club Selection</h3>
+      <button type="button" id="w1" name="Driver">Driver</button>
+      <button type="button" class="button_club" id="w3" name="Holz 3">Holz 3</button>
+      </p>
+      <input type="button" id="i3" value="Eisen 3"/>
+      <input type="button" id="i7" value="Eisen 7"/>
+      </p>
+      <input type="button" class="button_club" id="sw" value="Sandwedge"/>
+      </p>
+      <input type="button" class="button_club" id="p" value="Putter"/>
+    </section>
+
+    <section id="stroke">
+      <h3>Schwingen</h3>
+      <article>
+        <div id = "strokeText"></div>
+      </article>
+      <article>
+        <div id = "clubText"></div>
+      </article>
+      <article>
+        <input type="button" id="btn_swing" value="Hau druff!"/>
+      </article>
+    </section>
+
+    <section id="result">
+      <h3>Ergebnis</h3>
+      <article id="results">
+        <!--<p>Loch Nr. xx, Par x</p>
+        <p>Schlag Nr.</p>
+        <p>Schläger</p>
+        <p>Weite</p>-->
+      </article>
+    </section>
+
+    <section id="summary">
+      <h3>Zusammenfassung</h3>
+      <input type="button" id="button_summary" value="Zusammenfassung"/>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+#welcomeText {display: block;}
+#decision {display: none;}
+
+/*  . = Klassenselektor
+    # = id-Selektor
+*/
+
+.welcome {
+    background-color: yellow;
+}
+
+#stroke {
+    background-color: green;
+}
+
