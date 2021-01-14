@@ -15,6 +15,8 @@ const stroke = document.querySelector('#stroke');
 const result = document.querySelector('#result'); //section der Ergenisse
 const results =document.querySelector("#results"); //article der einzelnen Ergenisse
 const summary = document.querySelector('#summary');
+var min = 1.0;
+var max = 1.0;
 
 document.getElementById ("btn_swing").addEventListener("click", function(){swing();});
 
@@ -44,6 +46,25 @@ function createPlayer() {
   } else {
       activePlayer = new Player(golfersName);
       activePlayer.hcp = parseFloat(prompt('Was ist dein Handicap?').replace(/,/, ".")); //ersetz Komma durch Punkt und wandelt in float um.
+      // hier muss noch eine Schleife rein, damit die letzte else wieder zur Eingabe führt.
+      if (activePlayer.hcp <= 0.0) {
+          min = 1.05;
+          max = 1.3;
+        } else if (activePlayer.hcp <= 10.0) {
+            min = 1.0;
+            max = 1.25;
+          } else if (activePlayer.hcp <= 20.0) {
+              min = 0.9;
+              max = 1.2;
+            } else if (activePlayer.hcp <= 30.0) {
+                min = 0.8;
+                max = 1.1;
+              } else if (activePlayer.hcp <= 56.0) {
+                  min = 0.75;
+                  max = 1.05;
+                } else {
+                    alert("haha, try again!");
+                  }
       welcomeText.textContent = 'Schönes Spiel, ' + golfersName + '!';
     }
 }
@@ -95,21 +116,9 @@ function setHole(id) {
   }
   holeText.innerHTML = "Du hast Loch Nr. " + activeHole.number + " gewählt.</br>Es ist ein Par " + activeHole.par + " mit einer Länge von " + activeHole.distance + " Meter.";
   body.append(club);
-  //clubSelection();
 }
 
-/*function clubSelection() {
-  body.append(club);
-  let w1 = document.getElementById("w1").addEventListener("click", function(){clubId(this.id);});
-  let w3 = document.getElementById("w3").addEventListener("click", function(){clubId(this.id);});
-  document.getElementById("i3").addEventListener("click", function(){clubId(this.id);}); //anonymous function
-  document.getElementById("i7").addEventListener("click", function(){clubId(this.id);});
-
-}*/
-
-
 function clubId (id) {
-  //club.remove();
   activeClub = new Club(id);
 
   switch (id) {
@@ -160,8 +169,6 @@ function clubId (id) {
 
 function swing() {
   holeText.innerHTML = "";
-  let min = 0.8
-  let max = 1.2
   f = (Math.random() * (max - min)) + min;
   var carry = activeClub.avgDistance * f;
   activeHole.hit += 1;
@@ -195,9 +202,6 @@ function ergebnisAusgabe(carry) {
   body.append(club);
 }
 */
-/*function rand(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}*/
 
 summaryButton.onclick = function() {
   consolenAusgabe();
