@@ -17,14 +17,22 @@ const results =document.querySelector("#results"); //article der einzelnen Ergen
 const summary = document.querySelector('#summary');
 var min = 1.0;
 var max = 1.0;
+var strength = 1;
 
 document.getElementById ("btn_swing").addEventListener("click", function(){swing();});
 
 document.getElementById("w1").addEventListener("click", function(){clubId(this.id);});
 document.getElementById("w3").addEventListener("click", function(){clubId(this.id);});
-document.getElementById("i3").addEventListener("click", function(){clubId(this.id);}); //anonymous function
+document.getElementById("w5").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("i3").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("i4").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("i5").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("i6").addEventListener("click", function(){clubId(this.id);}); //anonymous function
 document.getElementById("i7").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("i8").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("i9").addEventListener("click", function(){clubId(this.id);});
 document.getElementById("sw").addEventListener("click", function(){clubId(this.id);});
+document.getElementById("pw").addEventListener("click", function(){clubId(this.id);});
 document.getElementById("p").addEventListener("click", function(){clubId(this.id);});
 
 course.remove();
@@ -87,6 +95,12 @@ function holeSelection() {
   document.getElementById("btn_hole1").addEventListener("click", function(){setHole(this.id);});
   document.getElementById("btn_hole2").addEventListener("click", function(){setHole(this.id);});
   document.getElementById("btn_hole3").addEventListener("click", function(){setHole(this.id);});
+  document.getElementById("btn_hole4").addEventListener("click", function(){setHole(this.id);});
+  document.getElementById("btn_hole5").addEventListener("click", function(){setHole(this.id);});
+  document.getElementById("btn_hole6").addEventListener("click", function(){setHole(this.id);});
+  document.getElementById("btn_hole7").addEventListener("click", function(){setHole(this.id);});
+  document.getElementById("btn_hole8").addEventListener("click", function(){setHole(this.id);});
+  document.getElementById("btn_hole9").addEventListener("click", function(){setHole(this.id);});
 }
 
 function setHole(id) {
@@ -98,19 +112,55 @@ function setHole(id) {
     case "btn_hole1": {
       activeHole.number = 1;
       activeHole.par = 4;
-      activeHole.distance = 310;
+      activeHole.distance = 247;
       break;
     }
     case "btn_hole2": {
       activeHole.number = 2;
       activeHole.par = 4;
-      activeHole.distance = 320;
+      activeHole.distance = 329;
       break;
     }
     case "btn_hole3": {
       activeHole.number = 3;
+      activeHole.par = 5;
+      activeHole.distance = 467;
+      break;
+    }
+    case "btn_hole4": {
+      activeHole.number = 4;
+      activeHole.par = 3;
+      activeHole.distance = 156;
+      break;
+    }
+    case "btn_hole5": {
+      activeHole.number = 5;
       activeHole.par = 4;
-      activeHole.distance = 330;
+      activeHole.distance = 333;
+      break;
+    }
+    case "btn_hole6": {
+      activeHole.number = 6;
+      activeHole.par = 5;
+      activeHole.distance = 492;
+      break;
+    }
+    case "btn_hole7": {
+      activeHole.number = 7;
+      activeHole.par = 4;
+      activeHole.distance = 321;
+      break;
+    }
+    case "btn_hole8": {
+      activeHole.number = 8;
+      activeHole.par = 3;
+      activeHole.distance = 186;
+      break;
+    }
+    case "btn_hole9": {
+      activeHole.number = 9;
+      activeHole.par = 4;
+      activeHole.distance = 381;
       break;
     }
   }
@@ -133,25 +183,56 @@ function clubId (id) {
       activeClub.avgDistance = 190;
       break;
     }
-
+    case "w5": {
+      activeClub.name = "Holz 5";
+      activeClub.avgDistance = 175;
+      break;
+    }
     case "i3": {
       activeClub.name = "3er Eisen";
       activeClub.avgDistance = 180;
       break;
     }
-
+    case "i4": {
+      activeClub.name = "4er Eisen";
+      activeClub.avgDistance = 170;
+      break;
+    }
+    case "i5": {
+      activeClub.name = "5er Eisen";
+      activeClub.avgDistance = 160;
+      break;
+    }
+    case "i6": {
+      activeClub.name = "6er Eisen";
+      activeClub.avgDistance = 150;
+      break;
+    }
     case "i7": {
       activeClub.name = "7er Eisen";
       activeClub.avgDistance = 140;
       break;
     }
-
-    case "sw": {
-      activeClub.name = "Sandwedge";
-      activeClub.avgDistance = 70;
+    case "i8": {
+      activeClub.name = "8er Eisen";
+      activeClub.avgDistance = 125;
       break;
     }
-
+    case "i9": {
+      activeClub.name = "9er Eisen";
+      activeClub.avgDistance = 115;
+      break;
+    }
+    case "pw": {
+      activeClub.name = "Pitching Wedge";
+      activeClub.avgDistance = 100;
+      break;
+    }
+    case "sw": {
+      activeClub.name = "Sand Wedge";
+      activeClub.avgDistance = 80;
+      break;
+    }
     case "p": {
       activeClub.name = "Putter";
       activeClub.avgDistance = 5;
@@ -164,14 +245,26 @@ function clubId (id) {
   }
   strokeText.innerHTML = `Loch Nr. ${activeHole.number}, Par ${activeHole.par}</br>Restweite: ${activeHole.distance}</br>Es folgt Schlag Nr. ${activeHole.hit + 1}`
   clubText.innerHTML = `Du hast dein ${activeClub.name} in der Hand.`;
+  if (activeClub.id == "p") {
+    strength = prompt("Wie stark haust du drauf? Gib eine ganze Zahl zw. 1 und 10 ein.");
+    strength = strength/5;
+    club.remove();
+  } else if (activeClub.id == "sw") {
+      strength = prompt("Wie stark haust du drauf? Gib eine ganze Zahl zw. 1 und 5 ein.");
+      strength = strength/5;
+      club.remove();
+    } else {
+    strength = 1;
+  }
   body.append(stroke);
 }
 
 function swing() {
   holeText.innerHTML = "";
   f = (Math.random() * (max - min)) + min;
-  var carry = activeClub.avgDistance * f;
+  var carry = activeClub.avgDistance * f * strength;
   activeHole.hit += 1;
+  console.log(strength);
   console.log(carry);
   console.log(activeHole.hit);
   berechneRestweite(activeHole, carry);
@@ -179,18 +272,22 @@ function swing() {
 }
 
 function berechneRestweite (activeHole, carry) {
-  activeHole.distance -= carry;
+  activeHole.distance = Math.abs(activeHole.distance) - carry;
   console.log(activeHole.distance);
   body.append(results);
   showHitResult(carry);
-  if (activeHole.distance > 1.5) {
+  if (activeHole.distance > 2.0) {
+    alert("Der ging " + carry + " Meter weit.\nRestdistanz: " + activeHole.distance + " Meter.\nWähle deinen nächsten Schläger.");
     body.append(club);
     //clubSelection();
-  }
-  else {
-    club.remove;
-    body.append(summary);
-  }
+  } else if (activeHole.distance < -2) {
+      alert("Der ging " + carry + " Meter weit. Etwas zu lang!\nRestdistanz: " + activeHole.distance + " Meter.\nWähle deinen nächsten Schläger.");
+      body.append(club);
+    } else {
+        alert("Der ging " + carry + " Meter weit.\nRestdistanz: " + activeHole.distance + " Meter.\n\nIt's a gimmy!")
+        club.remove;
+        body.append(summary);
+    }
 }
 
 function showHitResult(carry){
@@ -204,6 +301,8 @@ function ergebnisAusgabe(carry) {
 */
 
 summaryButton.onclick = function() {
+  let hits = activeHole.hit + 1;
+  alert("Du hast insg. " + hits + " Schläge gebraucht!");
   consolenAusgabe();
 }
 
