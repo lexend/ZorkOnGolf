@@ -262,7 +262,7 @@ function clubId (id) {
 function swing() {
   holeText.innerHTML = "";
   f = (Math.random() * (max - min)) + min;
-  var carry = activeClub.avgDistance * f * strength;
+  var carry = Math.round(activeClub.avgDistance * f * strength);
   activeHole.hit += 1;
   console.log(strength);
   console.log(carry);
