@@ -1,15 +1,69 @@
-#welcomeText {display: block;}
-#decision {display: none;}
-
 /*  . = Klassenselektor
     # = id-Selektor
 */
 
-.welcome {
-    background-color: rgb(72, 121, 255);
+body {
+	margin: 10px auto;
+	max-width: 60em;
+	font-family: sans-serif;
+	color: #333333;
 }
 
-#stroke {
-    background-color: green;
+input,
+button,
+header,
+nav,
+main,
+article,
+section,
+aside,
+footer {
+	/* border-radius: 0px 0.5em 0.5em;
+	border: 1px solid; */
+	padding: 2px;
+	margin: 2px;
 }
 
+header {
+	background: #F1F3F4;
+	border-color: #d5d5d5;
+}
+
+nav {
+	background: #fffbf0;
+	border-color: #e7c157;
+}
+
+section {
+	/* background: #F1F3F4; */
+	border-color: slateblue;
+}
+
+main {
+	display: block;
+	/* für IE */
+	
+	/* background: #00bb3e; */
+	border-color: #d2ddd4;
+}
+
+input,
+button {
+	padding: 4px;
+	margin: 4px;
+}
+
+article {
+	/* background: #ffede0; */
+	border-color: #df6c20;
+}
+
+aside {
+	/* background: #ebf5d7; */
+	border-color: #8db243;
+}
+
+footer {
+	background: #F1F3F4;
+	border-color: #8a9da8;
+}

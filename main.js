@@ -6,10 +6,11 @@ let clubText = document.querySelector ('#clubText');
 let strokeText = document.querySelector('#strokeText');
 let summaryButton = document.querySelector('#button_summary');
 
-const body =  document.body
-const section = document.createElement('section');
+const body =  document.body;
+const main = document.querySelector("#main");
+const welcome = document.querySelector('#welcome');
 const course = document.querySelector('#courseSelection');
-const hole =document.querySelector('#holeSelection');
+const hole = document.querySelector('#holeSelection');
 const club = document.querySelector('#clubSelection');
 const stroke = document.querySelector('#stroke');
 const result = document.querySelector('#result'); //section der Ergenisse
@@ -39,8 +40,8 @@ course.remove();
 hole.remove();
 club.remove();
 stroke.remove();
-result.remove();
-summary.remove();
+//result.remove();
+//summary.remove();
 
 startButton.onclick = function() {
   createPlayer();
@@ -78,7 +79,7 @@ function createPlayer() {
 }
 
 function courseSelection() {
-  body.append(course);
+  welcome.append(course);
   document.getElementById("btn_frontNine").addEventListener("click", function(){setCourse(this.name);});
   document.getElementById("btn_backNine").addEventListener("click", function(){setCourse(this.name);});
 }
@@ -86,12 +87,13 @@ function courseSelection() {
 function setCourse(name) {
   courseText.textContent = "Du hast die " + name + " gewählt.";
   //course.remove();
+  course.append(hole);
   holeSelection();
   return activeCourse = name; //der Course wird global in Variable activeHole gespeichert!
 }
 
 function holeSelection() {
-  body.append(hole);
+  //course.append(hole);
   document.getElementById("btn_hole1").addEventListener("click", function(){setHole(this.id);});
   document.getElementById("btn_hole2").addEventListener("click", function(){setHole(this.id);});
   document.getElementById("btn_hole3").addEventListener("click", function(){setHole(this.id);});
@@ -104,8 +106,8 @@ function holeSelection() {
 }
 
 function setHole(id) {
-  results.remove();
-  summary.remove();
+  //results.remove();
+  //summary.remove();
   activeHole = new Hole(id);
 
   switch (id) {
@@ -164,8 +166,8 @@ function setHole(id) {
       break;
     }
   }
-  holeText.innerHTML = "Du hast Loch Nr. " + activeHole.number + " gewählt.</br>Es ist ein Par " + activeHole.par + " mit einer Länge von " + activeHole.distance + " Meter.";
-  body.append(club);
+  holeText.innerHTML = "Du hast Loch Nr. " + activeHole.number + " gewählt.</br>Es ist ein Par " + activeHole.par + ".</br>Länge: " + activeHole.distance + " Meter.";
+  hole.append(club);
 }
 
 function clubId (id) {
@@ -248,15 +250,17 @@ function clubId (id) {
   if (activeClub.id == "p") {
     strength = prompt("Wie stark haust du drauf? Gib eine ganze Zahl zw. 1 und 10 ein.");
     strength = strength/5;
-    club.remove();
+    //club.remove();
+    club.append(stroke);
   } else if (activeClub.id == "sw") {
       strength = prompt("Wie stark haust du drauf? Gib eine ganze Zahl zw. 1 und 5 ein.");
       strength = strength/5;
-      club.remove();
+      //club.remove();
+      club.append(stroke);
     } else {
     strength = 1;
   }
-  body.append(stroke);
+  club.append(stroke);
 }
 
 function swing() {
@@ -274,19 +278,19 @@ function swing() {
 function berechneRestweite (activeHole, carry) {
   activeHole.distance = Math.abs(activeHole.distance) - carry;
   console.log(activeHole.distance);
-  body.append(results);
+  hole.append(results);
   showHitResult(carry);
   if (activeHole.distance > 2.0) {
     alert("Der ging " + carry + " Meter weit.\nRestdistanz: " + activeHole.distance + " Meter.\nWähle deinen nächsten Schläger.");
-    body.append(club);
+    //hole.append(club);
     //clubSelection();
   } else if (activeHole.distance < -2) {
       alert("Der ging " + carry + " Meter weit. Etwas zu lang!\nRestdistanz: " + activeHole.distance + " Meter.\nWähle deinen nächsten Schläger.");
-      body.append(club);
+      //hole.append(club);
     } else {
         alert("Der ging " + carry + " Meter weit.\nRestdistanz: " + activeHole.distance + " Meter.\n\nIt's a gimmy!")
         club.remove;
-        body.append(summary);
+        hole.append(summary);
     }
 }
 

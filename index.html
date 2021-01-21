@@ -1,43 +1,59 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="main.js" async></script>
-    <script src="classes.js" async></script>
-  </head>
-  <body>
-    <h1>Zork On Golf</h1>
-    <section class="welcome">
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="main.js" async></script>
+  <script src="classes.js" async></script>
+  <title>Zork on Golf</title>
+</head>
+
+<body>
+  <header>
+    <!--<img src="logo.gif" alt="logo">-->
+    <h1>Zork on Golf</h1>
+    <!-- <nav>
+      <ul>
+        <li><a href="#link_1.html">Willkommen</a></li>
+        <li><a href="#link_2.html">Platzwahl</a></li>
+        <li><a href="#link_3.html">Welches Loch</a></li>    
+        <li><a href="#link_4.html">Schlägerwahl</a></li>
+      </ul>
+    </nav> -->
+  </header>
+  
+  <main id="main">
+    <article id="welcome">
       <h3>Willkommen</h3>
       <button type="button" id="startButton">Start</button>
       <div id="welcomeText"></div>
-    </section>
-  </br>
+    </article>
 
-   <section id="courseSelection">
-     <h3>Course Selection</h3>
+    <article id="courseSelection">
+      <h3>Course Selection</h3>
       <button type="button" id="btn_frontNine" name="front Nine">Loch 1-9</button>
       <button type="button" id="btn_backNine" name="back Nine">Loch 10-18</button>
       <article id="courseText"></article>
-   </section>
+    </article>
 
-   <section id="holeSelection">
-    <h3>Hole Selection</h3>
-     <button type="button" id="btn_hole1" name="hole1">Loch 1</button>
-     <button type="button" id="btn_hole2" name="hole2">Loch 2</button>
-     <button type="button" id="btn_hole3" name="hole3">Loch 3</button>
+    <article id="holeSelection">
+      <h3>Hole Selection</h3>
+      <button type="button" id="btn_hole1" name="hole1">Loch 1</button>
+      <button type="button" id="btn_hole2" name="hole2">Loch 2</button>
+      <button type="button" id="btn_hole3" name="hole3">Loch 3</button>
+    </br>
+      <button type="button" id="btn_hole4" name="hole3">Loch 4</button>
+      <button type="button" id="btn_hole5" name="hole3">Loch 5</button>
+      <button type="button" id="btn_hole6" name="hole3">Loch 6</button>
    </br>
-     <button type="button" id="btn_hole4" name="hole3">Loch 4</button>
-     <button type="button" id="btn_hole5" name="hole3">Loch 5</button>
-     <button type="button" id="btn_hole6" name="hole3">Loch 6</button>
-  </br>
-     <button type="button" id="btn_hole7" name="hole3">Loch 7</button>
-     <button type="button" id="btn_hole8" name="hole3">Loch 8</button>
-     <button type="button" id="btn_hole9" name="hole3">Loch 9</button>
-     <article id = "holeText"></article>
-  </section>
+      <button type="button" id="btn_hole7" name="hole3">Loch 7</button>
+      <button type="button" id="btn_hole8" name="hole3">Loch 8</button>
+      <button type="button" id="btn_hole9" name="hole3">Loch 9</button>
+      <article id = "holeText"></article>
+    </article>
 
-    <section id="clubSelection">
+    <article id="clubSelection">
       <h3>Club Selection</h3>
       <button type="button" id="w1" name="Driver">Driver</button>
       <button type="button" class="button_club" id="w3" name="Holz 3">Holz 3</button>
@@ -57,7 +73,7 @@
       <input type="button" class="button_club" id="sw" value="Sand Wedge"/>
     </br>
       <input type="button" class="button_club" id="p" value="Putter"/>
-    </section>
+    </article>
 
     <section id="stroke">
       <h3>Schwingen</h3>
@@ -74,17 +90,28 @@
 
     <section id="result">
       <h3>Ergebnis</h3>
-      <article id="results">
-        <!--<p>Loch Nr. xx, Par x</p>
-        <p>Schlag Nr.</p>
-        <p>Schläger</p>
-        <p>Weite</p>-->
-      </article>
-    </section>
+        <article id="results">
+        </article>
+      </section>
+    
+      <section id="summary">
+        <h3>Zusammenfassung</h3>
+        <input type="button" id="button_summary" value="Zusammenfassung"/>
+      </section>
 
-    <section id="summary">
-      <h3>Zusammenfassung</h3>
-      <input type="button" id="button_summary" value="Zusammenfassung"/>
-    </section>
-  </body>
+    <!-- <aside>
+      <h2>Weiterführende Links</h2>
+      <ul>
+        <li><a href="#link_1.html">Birdie</a></li>
+        <li><a href="#link_2.html">Par</a></li>
+        <li><a href="#link_3.html">Bogey</a></li>
+      </ul>
+    </aside> -->
+  </main>
+
+  <footer>
+    <a href="#kontakt.html">Kontakt</a>
+    <p>keep on golfing</p>
+  </footer>
+</body>
 </html>
